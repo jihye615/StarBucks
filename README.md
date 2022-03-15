@@ -78,7 +78,7 @@ function onYouTubePlayerAPIReady() {
 ```
 
 >html 
-```
+```html
 <!-- Slider main container -->
 <div class="swiper">
   <!-- Additional required wrapper -->
