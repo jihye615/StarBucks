@@ -71,9 +71,10 @@ function onYouTubePlayerAPIReady() {
 ```
 
 ## Swiper slide
->css
+>css,js
 ```html
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>  
+<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script> 
 ```
 
 >html 
