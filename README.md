@@ -70,7 +70,7 @@ function onYouTubePlayerAPIReady() {
 }
 ```
 
-##Swuper slide
+## Swiper slide
 >css
 ```html
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>  
@@ -98,4 +98,18 @@ function onYouTubePlayerAPIReady() {
   <!-- If we need scrollbar -->
   <div class="swiper-scrollbar"></div>
 </div>
+```
+## swiper option
+```javascript
+new Swiper('.awards .swiper', {
+    direction: 'horizontal',
+    loop: true,
+    autoplay : true,
+    slidesPerView: 5, //한 번에 보여지는 슬라이드 개수
+    spaceBetween: 30,
+    navigation : {
+        prevEl : ".awards .swiper-prev",
+        nextEl : ".awards .swiper-next"
+    },
+});
 ```
