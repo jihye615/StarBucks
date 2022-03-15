@@ -112,16 +112,17 @@ new Swiper('.awards .swiper', {
         prevEl : ".awards .swiper-prev",
         nextEl : ".awards .swiper-next"
     },
-});
-breakpoints: { //반응형 조건 속성
+    breakpoints: { //반응형 조건 속성
     320: { //320 이상일 경우
       slidesPerView: 1, //레이아웃 1열
     },
     768: {
-      slidesPerView: 3, //레이아웃 1열 //레이아웃 1열
+      slidesPerView: 3, //레이아웃 2열
     },
     1024: {
-      slidesPerView: 4, //레이아웃 1열
+      slidesPerView: 4, //레이아웃 3열
     },
   }
+});
+
 ```
