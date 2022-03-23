@@ -126,3 +126,64 @@ new Swiper('.awards .swiper', {
 });
 
 ```
+
+## Scroll To Top
+`GSAP & ScrollToPlugin` , `Google Material Icons` , `Lodash`
+```html
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js" integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollToPlugin.min.js" integrity="sha512-nTHzMQK7lwWt8nL4KF6DhwLHluv6dVq/hNnj2PBN0xMl2KaMm1PM02csx57mmToPAodHmPsipoERRNn4pG7f+Q==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js" integrity="sha512-90vH1Z83AJY9DmlWa8WkjkV79yfS2n2Oxhsi2dZbIv0nC4E6m5AbH8Nh156kkM7JePmqD6tcZsfad1ueoaovww==" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  
+<!-- in BODY -->
+<div id="to-top">
+  <div class="material-icons">arrow_upward</div>
+</div>```
+
+css
+``css
+#to-top {
+  width: 42px;
+  height: 42px;
+  background: #333;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9;
+}
+```
+javascript
+```javascript
+const toTopEl = document.querySelector('#to-top')
+
+window.addEventListener('scroll', _.throttle(function () {
+  // 페이지 스크롤 위치가 500px이 넘으면.
+  if (window.scrollY > 500) {
+    // 상단으로 스크롤 버튼 보이기!
+    gsap.to(toTopEl, .2, {
+      x: 0
+    })
+  // 페이지 스크롤 위치가 500px이 넘지 않으면.
+  } else {
+    // 상단으로 스크롤 버튼 숨기기!
+    gsap.to(toTopEl, .2, {
+      x: 100
+    })
+  }
+}, 300))
+// 상단으로 스크롤 버튼을 클릭하면,
+toTopEl.addEventListener('click', function () {
+  // 페이지 위치를 최상단으로 부드럽게(0.7초 동안) 이동.
+  gsap.to(window, .7, {
+    scrollTo: 0
+  })
+})
+```
+
