@@ -128,6 +128,9 @@ new Swiper('.awards .swiper', {
 ```
 
 ## Scroll To Top
+페이지의 스크롤이 원하는 지점에 도달하면 scroll top 버튼을 나오게 하고
+클릭시 원하는 스크롤지점으로 이동할수 있습니다.
+
 `GSAP & ScrollToPlugin` , `Google Material Icons` , `Lodash`
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js" integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ==" crossorigin="anonymous"></script>
@@ -138,10 +141,11 @@ new Swiper('.awards .swiper', {
 <!-- in BODY -->
 <div id="to-top">
   <div class="material-icons">arrow_upward</div>
-</div>```
+</div>
+```
 
 css
-``css
+```css
 #to-top {
   width: 42px;
   height: 42px;
@@ -186,4 +190,53 @@ toTopEl.addEventListener('click', function () {
   })
 })
 ```
+
+## 스크롤에 반응하는 뱃지
+html
+```html
+<header>
+  <div class="badge">
+    <img src="" alt="Badge">
+  </div>
+</header>
+```
+
+css
+```css
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 9;
+}
+
+header .badge {
+  position: absolute;
+  top: 132px;
+  right: 12px;
+}
+```
+javascript
+```javascript
+const badgeEl = document.querySelector('header .badge')
+
+window.addEventListener('scroll',_.throttle(function(){
+  if(window.scrollY>500){
+    // 배지 숨기기
+    // gsap.to(요소, 시간, 옵션)
+    gsap.to(badgeEl,.6,{
+      opacity:0,
+      display:'none'
+    })
+  }else{
+    // 배지 보이기
+    gsap.to(badgeEl,.6,{
+      opacity:1,
+      display: 'block'
+    })
+  }
+},300))
+```
+
+
 
