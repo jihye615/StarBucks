@@ -219,6 +219,8 @@ header .badge {
 javascript
 ```javascript
 const badgeEl = document.querySelector('header .badge')
+const toTopEl = document.querySelector("#to-top");
+
 
 window.addEventListener('scroll',_.throttle(function(){
   if(window.scrollY>500){
